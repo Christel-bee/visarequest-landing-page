@@ -69,7 +69,7 @@
       <h2>Book Your Free Consultation</h2>
       <p class="lead">Tell us a few details and one of our experts will get in touch to discuss your situation and next steps.</p>
     </div>
-    <form class="consultation-form" onsubmit="return handleSubmit(event)">
+    <form class="consultation-form" action="https://formspree.io/f/xaqvwgnw" method="POST" data-form>
       <div class="form-row">
         <input type="text" name="fullName" placeholder="Full Name" required>
         <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
@@ -85,7 +85,7 @@
       </select>
       <textarea name="message" rows="4" placeholder="How can we help you?"></textarea>
       <button type="submit" class="btn btn-primary btn-full">Get My Free Consultation <span class="arrow">→</span></button>
-      <p class="form-note">🔒 Your information is kept private and secure.</p>
+      <p class="form-note" data-form-status>🔒 Your information is kept private and secure.</p>
     </form>
   </div>
 </section>
@@ -127,12 +127,33 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  alert("Thanks! Your request has been received. One of our experts will reach out shortly.");
-  e.target.reset();
-  return false;
-}
+document.querySelectorAll('form[data-form]').forEach(function (form) {
+  var status = form.querySelector('[data-form-status]');
+  var defaultStatus = status.textContent;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    status.textContent = 'Sending…';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        form.reset();
+        status.textContent = 'Thanks! Your request has been received. One of our experts will reach out shortly.';
+      } else {
+        status.textContent = 'Something went wrong sending your request. Please try again.';
+      }
+    }).catch(function () {
+      status.textContent = 'Something went wrong sending your request. Please try again.';
+    }).finally(function () {
+      submitBtn.disabled = false;
+      setTimeout(function () { status.textContent = defaultStatus; }, 6000);
+    });
+  });
+});
 </script>
 
 </body>

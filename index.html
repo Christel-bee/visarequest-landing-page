@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisaRequest — Get Your Visa Application Done Right</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <img src="assets/logo.png" alt="VisaRequest" class="logo">
+    <a href="#consultation" class="btn btn-primary btn-small">Get Free Consultation</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Expert guidance. A smoother journey.</p>
+      <h1>Get Expert Advice, <span class="accent">Done Right.</span></h1>
+      <p class="lead">Confused by the paperwork? Worried about a past rejection? Our experts provide personalized guidance and a thorough document review to help strengthen your application.</p>
+      <a href="#consultation" class="btn btn-primary">Get Your Free Consultation <span class="arrow">→</span></a>
+      <ul class="trust-row">
+        <li>💬 Quick response</li>
+        <li>🔒 Your information is secure</li>
+        <li>🧑‍🤝‍🧑 Speak to a real expert</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <img src="assets/hero.png" alt="Passport and boarding pass — more opportunities ahead">
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container features-grid">
+    <div class="feature">
+      <div class="feature-icon">📄</div>
+      <h3>Personalized Guidance</h3>
+      <p>Get clear, step-by-step advice for your situation.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔍</div>
+      <h3>Document Review</h3>
+      <p>We check your documents to help you avoid costly mistakes.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🧑‍🤝‍🧑</div>
+      <h3>Experienced Team</h3>
+      <p>Support from a team that understands visa requirements.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">✈️</div>
+      <h3>A Smoother Process</h3>
+      <p>Save time, reduce stress and move forward with confidence.</p>
+    </div>
+  </div>
+</section>
+
+<section class="consultation" id="consultation">
+  <div class="container consultation-inner">
+    <div class="consultation-copy">
+      <p class="eyebrow">Take the first step</p>
+      <h2>Book Your Free Consultation</h2>
+      <p class="lead">Tell us a few details and one of our experts will get in touch to discuss your situation and next steps.</p>
+    </div>
+    <form class="consultation-form" onsubmit="return handleSubmit(event)">
+      <div class="form-row">
+        <input type="text" name="fullName" placeholder="Full Name" required>
+        <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+      </div>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <select name="serviceType" required>
+        <option value="" disabled selected>Service / Destination</option>
+        <option value="study">Study Abroad</option>
+        <option value="work">Work</option>
+        <option value="family">Family</option>
+        <option value="travel">Travel / Tourism</option>
+        <option value="other">Other</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="How can we help you?"></textarea>
+      <button type="submit" class="btn btn-primary btn-full">Get My Free Consultation <span class="arrow">→</span></button>
+      <p class="form-note">🔒 Your information is kept private and secure.</p>
+    </form>
+  </div>
+</section>
+
+<section class="badges">
+  <div class="container badges-grid">
+    <div class="badge">
+      <div class="badge-icon">🛡️</div>
+      <div>
+        <h4>Independent &amp; Private Service</h4>
+        <p>We are not a government agency, embassy or visa centre.</p>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-icon">🧑‍🤝‍🧑</div>
+      <div>
+        <h4>Honest &amp; Transparent</h4>
+        <p>Clear guidance. No false promises.</p>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-icon">🌐</div>
+      <div>
+        <h4>Helping People Worldwide</h4>
+        <p>From study and work to family and travel visas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo-wrap"><img src="assets/logo.png" alt="VisaRequest" class="footer-logo"></span>
+      <p class="footer-tagline">People. Plans. Possibilities.</p>
+    </div>
+    <p class="footer-note">A brighter tomorrow awaits →</p>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  alert("Thanks! Your request has been received. One of our experts will reach out shortly.");
+  e.target.reset();
+  return false;
+}
+</script>
+
+</body>
+</html>
